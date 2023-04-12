@@ -1,4 +1,4 @@
-# Order Up - Week 4 IC
+# Order Up
 
 This repository requires and has been tested on Ruby v2.7.4 and is based on Rails 5.2.8.
 
