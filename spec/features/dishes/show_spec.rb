@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
+RSpec.describe '/dishes/id#show', type: :feature do
 
     let!(:chef1) {Chef.create!(name: 'Thomas')}
 
