@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
 
   resources :chefs, only: :show do
-    resources :ingredients, only: :index
+    resources :ingredients, only: :index, controller: 'chefs/ingredients'
   end
 end
