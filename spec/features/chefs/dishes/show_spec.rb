@@ -44,6 +44,8 @@ RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
       end
 
       expect(page).to have_content('Total Calories for this Dish: 1371')
+      expect(page).to_not have_content('Steak')
+      expect(page).to_not have_content('Grilled Steak')
 
     end
   end
