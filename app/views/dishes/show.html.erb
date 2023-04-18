@@ -12,3 +12,10 @@
   <%= ingredient.name %>
   </div>
 <% end %>
+
+<h4>Add Ingredient to Dish</h4>
+<%= form_with model: [@dish, @dish_ingred], local: true do |f| %>
+  <%= f.label :ingredient, 'Ingredient ID' %>
+  <%= f.text_field :ingredient %>
+  <%= f.submit 'Submit' %>
+<% end %>
