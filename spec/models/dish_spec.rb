@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Dish, type: :model do
   let!(:chef1) {Chef.create!(name: 'Thomas')}
+  let!(:chef2) {Chef.create!(name: 'Rigby')}
 
   let!(:dish1) {chef1.dishes.create!(name: 'Tuna Salad', description: 'Yummy')}
   let!(:dish2) {chef1.dishes.create!(name: 'Grilled Steak', description: "Hope you aren't vegan")}
   let!(:dish3) {chef1.dishes.create!(name: 'Hamburgers', description: "You can taste the charcoal")}
+  let!(:dish4) {chef2.dishes.create!(name: 'Ramen', description: "Watch out, it will stay hot for an hour")}
 
   let!(:tuna) {Ingredient.create!(name: 'Tuna', calories: 156)}
   let!(:salt) {Ingredient.create!(name: 'Salt', calories: 15)}
@@ -41,6 +43,7 @@ RSpec.describe Dish, type: :model do
     describe '#chef_name' do
       it 'returns the chefs name for that dish' do
         expect(dish1.chef_name).to eq('Thomas')
+        expect(dish4.chef_name).to eq('Rigby')
       end
     end
   end
