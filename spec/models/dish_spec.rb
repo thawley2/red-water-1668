@@ -37,5 +37,11 @@ RSpec.describe Dish, type: :model do
         expect(dish3.total_calories).to eq(0)
       end
     end
+
+    describe '#chef_name' do
+      it 'returns the chefs name for that dish' do
+        expect(dish1.chef_name).to eq('Thomas')
+      end
+    end
   end
 end

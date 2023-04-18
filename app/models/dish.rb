@@ -7,4 +7,8 @@ class Dish < ApplicationRecord
   def total_calories
     ingredients.sum(:calories)
   end
+
+  def chef_name
+    chef.name
+  end
 end

@@ -21,7 +21,7 @@ RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
 
   describe 'When I visit a dishes show page' do
     it 'I see the chef name and dish name/description' do
-      visit chef_dish_path(chef1, dish1)
+      visit dish_path(dish1)
 
       expect(page).to have_content('Chef: Thomas')
       expect(page).to have_content('Dish Name: Tuna Salad')
@@ -29,7 +29,7 @@ RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
     end
 
     it 'I see the list of ingredients for that dish and total calorie count' do
-      visit chef_dish_path(chef1, dish1)
+      visit dish_path(dish1)
 
       expect(page).to have_content('Ingredients')
 
@@ -52,7 +52,7 @@ RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
     describe 'I see a form to add an existing Ingredient to that Dish' do
       describe 'When I fill in the form with the ID of an Ingredient that exists in the database' do
         it 'I click submit then I am redierected to that dishs show page and the new ingredient is listed' do
-          visit chef_dish_path(chef1, dish1)
+          visit dish_path(dish1)
 
           expect(page).to_not have_content('Steak')
           expect(page).to have_content('Add Ingredient to Dish')
@@ -60,7 +60,7 @@ RSpec.describe '/chefs/id/dishes/id#show', type: :feature do
           fill_in 'Ingredient ID', with: steak.id
           click_button 'Submit'
 
-          expect(current_path).to eq(chef_dish_path(chef1, dish1))
+          expect(current_path).to eq(dish_path(dish1))
           expect(page).to have_content('Steak')
           expect(page).to have_content('Total Calories for this Dish: 2871')
         end
